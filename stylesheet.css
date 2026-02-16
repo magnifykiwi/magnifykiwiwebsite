@@ -1,0 +1,982 @@
+/* bruh i wish code was simple, everything breaks on diff websitres, hope we make some profit so we can hire a websidte dev or smt*/
+
+/* Outer section */
+.why-us-section {
+  display: flex;
+  justify-content: center;   /* horizontal centering */
+  align-items: center;       /* vertical centering */
+  padding: 4rem 1rem;        /* spacing for mobile */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Inner card */
+.why-us-card {
+  width: 100%;
+  max-width: 900px;          /* prevents stretching on large screens */
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/*some random reccomended fix*/
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+}
+
+/* ------------------- TOP LOGO ------------------- */
+
+.sitelogo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: block;
+  transition: all 0.4s ease;
+}
+
+.sitelogo img {
+  height: 80px;
+  transition: all 0.4s ease;
+}
+
+.sitelogo.scrolled {
+  left: auto;
+  right: 20px;
+  transform: none;
+}
+
+.sitelogo img:hover {
+  transform: translateY(-4px) scale(1.08);
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+}
+
+/*---------------------------------------------------------------------------------------------MAIN------------------------*/
+
+/* so this the font and stuff but it dont wrk on others laptops for sum reason*/
+body {
+  font-family: 'Franklin Gothic Heavy';
+	background: linear-gradient(-45deg, #45dfb8, rgb(56, 127, 174), #07369c); /*moving backgrd source*/
+	background-size: 400% 400%;
+	animation: gradient 2s ease infinite; 
+}
+
+/*animation gradient*/
+@keyframes gradient {
+	0% {  
+		background-position: 0% 50%;  
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*---------------------------------------------------------------------------------------------LOGO------------------------*/
+
+/*---------------------------------------------------------------------------------------------TITLE BANNER------------------------*/
+.container{
+    display:flex;
+    gap:20px;
+    min-height:55vh;
+    margin-top: 95px;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.panel{
+  flex:1;                 
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  padding:40px;
+  border-radius:14px;
+
+  text-decoration:none;
+  color:rgb(0, 0, 0);
+  text-align:center;
+
+  min-height:500px;      
+}
+
+.panel h1, /* 4 the text in the big boxes at the top makes them not break*/
+.panel p{
+  margin:0;
+}
+
+.panel h1{
+  margin-bottom:16px;
+}
+
+.left{
+  /*background: linear-gradient(135deg, #0fdce3a0, #8babeb, rgb(48, 48, 209));*/
+
+  background-image: url(images/leftpanelpage.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+/*does this even apply anymore? to scared to delete*/
+.right{
+  background-image: url("images/middlepanel.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#panels {
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+#panels.blur-out {
+  opacity: 0;
+  filter: blur(20px);
+}
+
+.left,
+.right {
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  border-radius: 14px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.left:hover,
+.right:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.35);
+  opacity: 1;
+}
+
+.left:active,
+.right:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+.left,
+.right {
+  cursor: pointer;
+}
+
+.left:focus-visible,
+.right:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.6);
+}
+
+#panels {
+  transition: opacity 0.4s ease, filter 0.4s ease, height 0.4s ease;
+  overflow: visible;
+}
+
+#panels.blur-out {
+  opacity: 0;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.panel-link{
+  flex:1;             
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+  
+}
+
+.left::after,
+.right::after{
+  content: "→";
+  font-size: 28px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.25s;
+}
+
+.left:hover::after,
+.right:hover::after{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.left:hover,
+.right:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+.left:hover{
+    background-image: url(images/leftpanelhover.png);
+}
+
+.right:hover{
+  background-image: url(images/middlehover.png);
+}
+
+/*new panel layout, old one code could become obsolete*/
+
+.rightstack{
+  flex: 1;
+  display: flex;
+  flex-direction: coloumn;
+  gap: 20px;
+}
+
+.right.top{
+  flex: 2;
+}
+
+.store.panel{
+  flex: 1;
+  background-image: url("images/storepanel.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: 900;
+  letter-spacing: 2px;
+  animation: jump 1s ease-in-out infinite;
+    will-change: transform;
+}
+
+.store.panel:hover {
+  background-image: url("images/storepanelhover.png");
+
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.35),
+    0 0 40px rgba(108,108,204,0.4);
+}
+
+/*---------------------------------------------------------------------------------------------CLICK ME!-----------------------*/
+
+@keyframes jump{
+  0%, 100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-12px);
+  }
+}
+
+/*---------------------------------------------------------------------------------------------SHOP NOW------------------------*/
+
+.panelstorebutt{
+  margin-top: 40px;
+  padding: 22px 70px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  border-radius: 14px;
+  color: #eeeeee;
+
+  background: 135deg,#38d5ff,#7be0ff,#3aa6ff;
+
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35),
+    inset 0 2px 6px rgba(255,255,255,0.7);;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+
+}
+
+.panelstorebutt:hover {
+  transform: translateY(-10px) scale(1.06);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.45),
+    0 0 40px rgba(56,213,255,0.6);
+
+  background: linear-gradient(
+    135deg,
+    #4fe0ff,
+    #a6ecff,
+    #4cb3ff
+  );
+}
+
+/* Click */
+.panelstorebutt:active {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/*---------------------------------------------------------------------------------------------Advertise Now Button------------------------*/
+.adnowbutt {
+  position: fixed;          
+  top: 80px;                
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 10px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+
+  border-radius: 14px;
+
+  background: rgba(174, 0, 255, 0.345);
+  color: #2a2a2a;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 2px 6px rgba(255,255,255,0.7);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 9999;            /* above panels */
+  transition: all 0.25s ease;
+}
+
+.adnowbutt:hover {
+  transform: translateX(-50%) translateY(-6px) scale(1.03);
+  background: linear-gradient(135deg, rgb(108,108,204), #7a7afc, rgba(239, 217, 19, 0.416));
+}
+
+
+/*---------------------------------------------------------------------------------------------SIDENAV------------------------*/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity: 50%;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color:  rgb(39, 134, 224);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav {
+  z-index: 2;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 1;
+}
+
+.menuBtn {
+  position: fixed;  
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 9999;  
+  margin-right: 55px;   
+
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(94, 91, 91, 0.327);
+  backdrop-filter: blur(30px);
+
+  transition: 
+    transform 0.2s ease-out,
+    background-color 0.2s ease-out;
+}
+
+.menuBtn.scrolled {
+  background: rgba(0,0,0,0.5);
+}
+
+.menuBtn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+.menuBtn svg {
+  transition: transform 0.2s ease-out;
+}
+
+.menuBtn:hover svg {
+  transform: translateY(-2px);
+}
+
+.active{
+    background: rgb(39, 134, 224);
+    border-radius: 3px;
+    
+}
+
+/*---------------------------------------------------------------------------------------------QUICK NAV------------------------*/
+
+.quick-nav {
+  position: fixed;
+  bottom: 10px;          
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 20px;
+
+  padding: 14px 20px;
+  border-radius: 14px;
+
+  backdrop-filter: blur(100px);
+  background: rgba(255,255,255,0.25);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  z-index: 9999;
+}
+
+.quick-btn {
+  background: white;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+
+  transition: all 0.2s ease;
+}
+
+.quick-btn:hover {
+  transform: translateY(-8px);
+  background-color: rgba(93, 193, 221, 0.474);
+  opacity: 50%;
+}
+
+.scrolldown {
+  position: fixed;
+  bottom: 100px;          
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 20px;
+
+  padding: 14px 20px;
+  border-radius: 14px;
+
+  backdrop-filter: blur(100px);
+  background: rgba(255,255,255,0.25);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  z-index: 9999;
+}
+
+.scrolldown-btn {
+  background: white;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+
+  transition: all 0.2s ease;
+}
+
+.scrolldown:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, #207cec48, #dfe9ff, #1e87e941);
+}
+
+
+/*---------------------------------------------------------------------------------------------BACK TO TOP------------------------*/
+
+html{
+  scroll-behavior: smooth;
+}
+
+.back-to-top{
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(100px);
+  background: rgba(255,255,255,0.25);
+  padding: 14px 20px;
+  border-radius: 14px; 
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+
+.back-to-top span{
+  transition: 0.2s ease-out;
+}
+
+.back-to-top:hover{
+  background-color: rgba(0, 0, 0, 0.349);
+}
+
+.back-to-top:hover span{
+  transform: translateY(-4px);
+}
+
+/*---------------------------------------------------------------------------------------------CARDS------------------------*/
+
+.section-title {
+  text-align: center;
+  color: white;
+  font-size: 20px;  
+  background-color: #32e2dc00;
+  border-radius: 8px; 
+}
+
+.card {
+    background-color: white;
+ padding: 1px 10px;
+  font-size: 22px;
+  font-weight: bold;
+    border-radius: 0px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    color: black;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: darkred;
+}
+
+/*---------------------------------------------------------------------------------------------SECOND BOX------------------------*/
+
+.newcards{
+ background-color: #ffffff68;
+  color: black;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 40px auto;
+  padding: 60px 70px;
+  border-radius: 14px;
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.25s ease;
+}
+
+.newcards p{
+  max-width:650px;
+  margin:auto;
+}
+
+
+.newcards.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.titlecard{
+  background-color: #ffffff;
+  color: black;
+
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 60px 70px;
+  border-radius: 14px;
+
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition: 
+    opacity 0.6s ease,
+    transform 1s ease;
+}
+
+.titlecard.show {
+  opacity: 1;
+  transform: translateY(0);
+  width: 60%;
+}
+
+.newcards:hover{
+  transform:translateY(-12px) scale(1.02);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.25),
+    0 0 40px rgba(94, 144, 244, 0.144); /* glow */
+
+  cursor:pointer;
+}
+
+.newcards{
+  position:relative;
+  overflow:hidden;
+}
+
+.newcards::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  padding:2px;
+
+  background:linear-gradient(
+      120deg,
+      transparent,
+      rgba(94,144,244,.6),
+      transparent
+  );
+
+  opacity:0;
+  transition:opacity .25s ease;
+}
+
+.newcards:hover::before{
+  opacity:1;
+}
+
+
+/*---------------------------------------------------------------------------------------------BOX------------------------*/
+
+.box{
+  float:none; 
+  position: relative;
+  background-color: #d6d3d6;
+  max-width: 1500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+  
+.box2{
+   display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #a2c1e0;
+  max-width: 1500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.box3{
+   display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #9191eb;
+  max-width: 1500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+  
+.card-link{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.newcards{
+  cursor: pointer;
+  transition: 
+    opacity 0.6s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.newcards:hover{
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.newcards:hover{
+  transform: translateY(-10px) scale(1.01);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.25),
+    0 0 40px rgba(94,144,244,0.25);
+}
+
+/*---------------------------------------------------------------------------------------------ADVERTISING------------------------*/
+
+/* ts makes sure everything is aligned 4 the ads n stuff*/
+.adssection{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.adcard{
+
+  /*width: 320px;
+  height: 190px;
+
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+
+  background-size: cover;
+  background-position: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+    */ /* disable coz of bug*/
+
+    display: none;
+}
+
+/* Placeholder images */
+.ad1{ background-image: url("images/ad1.jpg"); }
+.ad2{ background-image: url("images/ad2.jpg"); }
+.ad3{ background-image: url("images/ad3.jpg"); }
+
+/* Dark overlay */
+.adcard::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.25);
+  transition: background 0.3s ease;
+}
+
+/* Hover animation */
+.adcard:hover{
+  transform: scale(1.06);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+.adcard:hover::before{
+  background: rgba(0,0,0,0.45);
+}
+
+/* Button */
+.adbutton{
+  position: relative;
+  z-index: 1;
+
+  background: white;
+  color: black;
+
+  padding: 14px 26px;
+  border-radius: 30px;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.adcard:hover .ad-btn{
+  transform: scale(1.08);
+}
+
+.adssection,
+.advertspot {
+  float: none !important;
+}
+
+/*---------------------------------------------------------------------------------------------ADVERTISING------------------------*/
+
+.advertspot {
+  width: 320px;
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 18px;
+  text-decoration: none;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+  transition: all 0.35s ease;
+}
+
+/*plz work*/
+.advertspot:hover {
+  transform: scale(1.06);
+}
+
+/*imma debug this and i pray u work/*
+
+/* image area 4 our clients */
+.partnerimage {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+
+/* bio or body  */
+.partnerbody {
+  padding: 20px;
+  text-align: center;
+}
+
+.partnertitle {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.partnerbio {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+}
+
+/* middle card the feature one for high payers */
+.advertspot.featured {
+  transform: scale(1.05);
+  border: 2px solid rgba(255,255,255,0.4);
+  animation: jump 1s ease-in-out infinite;
+}
+
+.advertspot.featured:hover {
+  transform: translateY(-18px) scale(1.08);
+}
+
+.advertspot:hover .partnerimage {
+  transform: scale(1.08);
+}
+
+/*CODE BREAKS ON MOBILE SO HERES THE FIX HOPEFULLY IT WRKS*/
+
+@media (max-width: 768px){
+   .container {
+    flex-direction: column;
+    padding: 0 16px;
+   }
+
+    .panel {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  /* Fix logo position */
+  .sitelogo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Right stack should be vertical */
+  .rightstack {
+    flex-direction: column;
+  }
+
+  /* Cards should use full width */
+  .newcards {
+    width: 100%;
+    padding: 24px;
+  }
+
+  /* Reduce font sizes */
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  /* Hide fixed quick nav on mobile */
+  .quick-nav {
+    display: none;
+  }
+}
